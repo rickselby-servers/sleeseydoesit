@@ -24,7 +24,7 @@ jobs:
       - uses: rickselby-web-server/actions/docker-compose-deploy@main
         with:
           CONNECT_CONTAINERS: mysql,nginx-proxy
-          STACK_NAME: sleesydoesit
+          STACK_NAME: sleeseydoesit
         env:
           DOCKER_HOST: ${{ secrets.LINODE_HOST }}
           DOCKER_TLS_VERIFY: 1

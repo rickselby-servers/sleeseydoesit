@@ -2,38 +2,38 @@ version: '2.4'
 
 services:
   app:
-    container_name: sleesydoesit-app
+    container_name: sleeseydoesit-app
     build: wordpress
     restart: always
     volumes:
       - site:/var/www/html
 
   web:
-    container_name: sleesydoesit-web
+    container_name: sleeseydoesit-web
     build: nginx
     restart: always
     depends_on:
       - app
     environment:
-      VIRTUAL_HOST: www.sleesydoesit.co.uk
-      LETSENCRYPT_HOST: www.sleesydoesit.co.uk
+      VIRTUAL_HOST: www.sleeseydoesit.co.uk
+      LETSENCRYPT_HOST: www.sleeseydoesit.co.uk
       LETSENCRYPT_EMAIL:
     volumes:
       - site:/var/www/html
 
   redirect:
-    container_name: sleesydoesit-redirect
+    container_name: sleeseydoesit-redirect
     image: morbz/docker-web-redirect
     restart: always
     environment:
-      VIRTUAL_HOST: sleesydoesit.co.uk
-      LETSENCRYPT_HOST: sleesydoesit.co.uk
+      VIRTUAL_HOST: sleeseydoesit.co.uk
+      LETSENCRYPT_HOST: sleeseydoesit.co.uk
       LETSENCRYPT_EMAIL:
-      REDIRECT_TARGET: www.sleesydoesit.co.uk
+      REDIRECT_TARGET: www.sleeseydoesit.co.uk
 
 volumes:
   site:
 
 networks:
   default:
-    name: sleesydoesit
+    name: sleeseydoesit
